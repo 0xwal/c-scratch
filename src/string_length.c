@@ -3,8 +3,17 @@
 
 size_t string_length(const char* input)
 {
-    if (*input == '\0') {
+
+    if (input == NULL || *input == '\0')
+    {
         return 0;
     }
+
+    const char* ptr = input;
+
+    while (*ptr++ != '\0');
+
+    return ptr - input - 1;
+
 }
 
