@@ -31,6 +31,18 @@ TEST_CASE("to_lower")
         char input[] = "HellO World";
         REQUIRE_THAT(to_lower(input), Catch::Equals("hello world"));
     }
+
+    SECTION("should not change non alphabetic char")
+    {
+        char input[] = "HellO 12345";
+        REQUIRE_THAT(to_lower(input), Catch::Equals("hello 12345"));
+    }
+
+    SECTION("all alphabetic")
+    {
+        char input[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        REQUIRE_THAT(to_lower(input), Catch::Equals("abcdefghijklmnopqrstuvwxyz"));
+    }
 }
 
 TEST_CASE("to_lower_char")
