@@ -1,6 +1,7 @@
 #ifndef COMMON_H
 #define COMMON_H
 #include <stddef.h>
+#include <stdbool.h>
 
 #if defined(__cplusplus)
 #define BEGIN_DECL   extern "C" {
