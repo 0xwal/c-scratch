@@ -20,6 +20,10 @@ char* to_lower(char* input)
 
 char to_lower_char(char letter)
 {
-    return (char)(letter | 0x20);
+    if (letter >= 'A' && letter <= 'Z')
+    {
+        return (char)(letter | 0x20);
+    }
+    return letter;
 }
 

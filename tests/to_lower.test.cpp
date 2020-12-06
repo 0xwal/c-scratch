@@ -47,9 +47,22 @@ TEST_CASE("to_lower")
 
 TEST_CASE("to_lower_char")
 {
-    SECTION("return lower letter")
+    SECTION("lower all letters")
     {
-        REQUIRE(to_lower_char('A') == 'a');
+        char alphabetic_input[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        char alphabetic_expected[] = "abcdefghijklmnopqrstuvwxyz";
+
+        for (int i = 0; i < sizeof(alphabetic_expected); ++i)
+        {
+            REQUIRE(to_lower_char(alphabetic_input[i]) == alphabetic_expected[i]);
+        }
     }
+
+    SECTION("ignore non alphabetic")
+    {
+        REQUIRE(to_lower_char('1') == '1');
+    }
+
+
 }
 
