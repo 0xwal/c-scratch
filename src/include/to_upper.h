@@ -9,7 +9,7 @@ BEGIN_DECL
 
 char* to_upper(char* input);
 
-char to_upper_char(char input);
+char to_upper_char(char letter);
 
 END_DECL
 

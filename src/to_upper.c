@@ -20,12 +20,12 @@ char* to_upper(char* input)
 }
 
 
-char to_upper_char(char input)
+char to_upper_char(char letter)
 {
-    if (input >= 'a' && input <= 'z')
+    if (letter >= 'a' && letter <= 'z')
     {
-        return (char)(input & 0xDF);
+        return (char)(letter & 0xDF);
     }
 
-    return input;
+    return letter;
 }
