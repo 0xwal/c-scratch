@@ -2,12 +2,12 @@
 
 This repository contains a collection of essetnial functions built from scratch.
 
-### The Purpose: 💡
+## The Purpose: 💡
 
 It is a challenge to be a good programmer with a decent understanding of how everything works, so rather than using the native functions from the language itself, it'd be nice to build those simple
 tasks from scratch to gain the knowledge. I chose the C language because there is no abstraction, which gives you many challenges that can boost the experience along the way.
 
-### Contribution: 💪🏻
+## Contribution: 💪🏻
 
 ###### I will appreciate your contribution and make sure to consider the followings: 🚨
 
