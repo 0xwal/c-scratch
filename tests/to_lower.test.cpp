@@ -25,6 +25,12 @@ TEST_CASE("to_lower")
         char input[] = "HellO";
         REQUIRE_THAT(to_lower(input), Catch::Equals("hello"));
     }
+
+    SECTION("ignore space")
+    {
+        char input[] = "HellO World";
+        REQUIRE_THAT(to_lower(input), Catch::Equals("hello world"));
+    }
 }
 
 TEST_CASE("to_lower_char")

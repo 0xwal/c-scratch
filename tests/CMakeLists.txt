@@ -14,6 +14,7 @@ add_executable(${PROJECT_NAME} main.cpp)
 target_sources(${PROJECT_NAME} PRIVATE
                string_length.test.cpp
                to_lower.test.cpp
+               to_upper.test.cpp
                )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Catch2::Catch2)

@@ -8,6 +8,9 @@ add_library(${PROJECT_NAME}
 
             include/to_lower.h
             to_lower.c
+
+            include/to_upper.h
+            to_upper.c
             )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
