@@ -6,7 +6,7 @@ bool is_letter(char value)
 }
 
 
-size_t word_count(const char* input)
+size_t words_count(const char* input)
 {
     if (input == NULL || *input == '\0')
     {

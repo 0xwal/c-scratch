@@ -7,7 +7,7 @@
 
 BEGIN_DECL
 
-size_t word_count(const char* input);
+size_t words_count(const char* input);
 
 END_DECL
 
