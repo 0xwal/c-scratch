@@ -57,8 +57,10 @@ TEST_CASE("words_count")
         REQUIRE(words_count(" ") == 0);
     }
 
-    SECTION("symbols are not word")
+    SECTION("any non alphabetic is not a word")
     {
-        FAIL("todo");
+        REQUIRE(words_count("> Hello World !") == 2);
+        REQUIRE(words_count("> Hello :) World !") == 2);
+        REQUIRE(words_count("> Hello :) World I miss you, 1337 !") == 5);
     }
 }
