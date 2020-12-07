@@ -63,4 +63,10 @@ TEST_CASE("words_count")
         REQUIRE(words_count("> Hello :) World !") == 2);
         REQUIRE(words_count("> Hello :) World I miss you, 1337 !") == 5);
     }
+
+    SECTION("short form word is a word")
+    {
+        REQUIRE(words_count("don't") == 1);
+        REQUIRE(words_count("don't waste your time") == 4);
+    }
 }
