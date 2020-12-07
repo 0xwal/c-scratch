@@ -46,3 +46,23 @@ size_t words_count(const char* input)
     return count;
 
 }
+
+// Another solution suggested by Fabreaz#2247
+//This solutions not aware of symbol and other stuff
+/*
+    while (*input == ' ') input++; //This ignores all leading whitespaces
+
+    for (int i = 0; input[i] != '\0'; ++i)
+    {
+        if (i == 0) //consider this a non-space and we should count one because there is no previous space that we count on.
+        {
+            count++;
+            continue;
+        }
+
+        if (input[i - 1] == ' ' && is_letter(input[i])) // make sense, each word should be preceded by a space unless if its the start word
+        {
+            count++;
+        }
+    }
+ */
