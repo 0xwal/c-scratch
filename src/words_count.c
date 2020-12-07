@@ -1,4 +1,4 @@
-#include "include/word_count.h"
+#include "include/words_count.h"
 
 #define SMALL_LETTER_BITMASK 0b00100000
 

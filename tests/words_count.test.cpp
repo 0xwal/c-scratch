@@ -1,5 +1,5 @@
 #include <catch2/catch.hpp>
-#include <word_count.h>
+#include <words_count.h>
 
 TEST_CASE("words_count")
 {

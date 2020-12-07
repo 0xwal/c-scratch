@@ -1,7 +1,7 @@
 
 
-#ifndef WORD_COUNT_H
-#define WORD_COUNT_H
+#ifndef WORDS_COUNT_H
+#define WORDS_COUNT_H
 
 
 #include "common.h"
@@ -12,4 +12,4 @@ size_t words_count(const char* input);
 
 END_DECL
 
-#endif //WORD_COUNT_H
+#endif //WORDS_COUNT_H
