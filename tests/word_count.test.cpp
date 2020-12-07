@@ -13,25 +13,33 @@ TEST_CASE("words_count")
         REQUIRE(words_count("") == 0);
     }
 
-    SECTION("return word count that separated by space")
+    SECTION("return words count that separated by space")
     {
         REQUIRE(words_count("Hello World") == 2);
         REQUIRE(words_count("Hello World From Cpp") == 4);
     }
 
+    SECTION("return words count for all capital letters")
+    {
+        REQUIRE(words_count("HELLO WORLD") == 2);
+    }
+
     SECTION("ignore leading spaces")
     {
+        REQUIRE(words_count(" Hello World") == 2);
         REQUIRE(words_count("   Hello World") == 2);
     }
 
     SECTION("ignore trailing spaces")
     {
         REQUIRE(words_count("Hello World    ") == 2);
+        REQUIRE(words_count("Hello World ") == 2);
     }
 
-    SECTION("ignore leading and trailing spaces when both exist")
+    SECTION("ignore leading and trailing spaces")
     {
         REQUIRE(words_count("    Hello World    ") == 2);
+        REQUIRE(words_count(" Hello World ") == 2);
     }
 
     SECTION("repeated spaces considered one")

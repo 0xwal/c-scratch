@@ -2,44 +2,47 @@
 
 bool is_letter(char value)
 {
-    return value >= 'a' && value <= 'z';
+
+    return ((value | 0x20) >= 'a' && (value | 0x20) <= 'z');
 }
 
+bool is_null_or_empty_string(const char* input)
+{
+    return input == NULL || *input == '\0';
+}
 
 size_t words_count(const char* input)
 {
-    if (input == NULL || *input == '\0')
+
+    if (is_null_or_empty_string(input))
     {
         return 0;
     }
 
-    while (*input == ' ')
-    {
-        input++;
-    }
-
     int count = 0;
-    bool lastTimeWasLetter = false;
+    bool calculated = false;
+
     while (*input != '\0')
     {
         char currentChar = *input;
-
-        if (is_letter(currentChar))
-        {
-            lastTimeWasLetter = true;
-            input++;
-            continue;
-        }
-
-        if (lastTimeWasLetter || currentChar == ' ')
-        {
-            lastTimeWasLetter = false;
-            input++;
-            continue;
-        }
-
         input++;
-        count++;
+
+        if (is_letter(currentChar) && !calculated)
+        {
+            count++;
+            calculated = true;
+            continue;
+        }
+
+
+        if (currentChar == ' ')
+        {
+            calculated = false;
+            continue;
+        }
+
     }
+
     return count;
+
 }
