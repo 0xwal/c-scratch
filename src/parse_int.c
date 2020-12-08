@@ -1,6 +1,6 @@
 #include "include/parse_int.h"
 
-typedef int64_t (* base_operation_t)(int64_t , int);
+typedef int64_t (* base_operation_t)(int64_t, int);
 
 typedef bool(* base_char_verifier_t)(char);
 
@@ -91,7 +91,8 @@ bool has_base(const char* input)
     char second = *(input + 1);
     for (int i = 0; i < sizeof(g_supported_base); ++i)
     {
-        if (second == g_supported_base[i]) {
+        if (second == g_supported_base[i])
+        {
             return true;
         }
     }
