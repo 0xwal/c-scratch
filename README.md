@@ -1,3 +1,5 @@
+![Main](https://github.com/0xWaleed/c-scratch/workflows/Main/badge.svg)
+
 # C Scratch 📝
 
 This repository contains a collection of essetnial functions built from scratch.
