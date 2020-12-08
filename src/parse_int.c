@@ -1,5 +1,17 @@
 #include "include/parse_int.h"
 
+typedef int (* base_operation_t)(int, int);
+
+typedef bool(* base_char_verifier_t)(char);
+
+typedef struct
+{
+    char prefix[2];
+    base_operation_t calculate;
+    base_char_verifier_t verifier;
+
+} base_operation_s;
+
 bool is_valid_number(char c)
 {
     return (c >= '0' && c <= '9');
@@ -36,7 +48,7 @@ const char* skip_spaces(const char* input)
     return input;
 }
 
-bool is_input_prefixed_with_0x(const char* input)
+bool has_base(const char* input)
 {
     return *input == '0' && *(input + 1) == 'x';
 }
@@ -44,6 +56,41 @@ bool is_input_prefixed_with_0x(const char* input)
 bool is_null_or_empty(const char* input)
 {
     return input == NULL || *input == '\0';
+}
+
+static bool is_equals(const char* first, const char* second)
+{
+    while (*first != '\0' && *second != '\0')
+    {
+        if (*first != *second)
+        {
+            return false;
+        }
+        first++;
+        second++;
+    }
+    return true;
+}
+
+static base_operation_s g_operations[] = {
+        {
+                "0x",
+                calculateHex,
+                is_valid_hex_number
+        }
+};
+
+base_operation_s* get_operation(const char* input)
+{
+    size_t s = sizeof(g_operations) / sizeof(base_operation_s);
+    for (int i = 0; i < s; ++i)
+    {
+        if (is_equals(g_operations[i].prefix, input))
+        {
+            return &g_operations[i];
+        }
+    }
+    return NULL;
 }
 
 int parse_int(const char* input)
@@ -65,31 +112,34 @@ int parse_int(const char* input)
         input++;
     }
 
-    bool isHex = is_input_prefixed_with_0x(input);
+    bool hasBase = has_base(input);
 
-    if (isHex)
+    base_operation_t operation = calculate;
+    base_char_verifier_t verifier = is_valid_number;
+
+    if (hasBase)
     {
+        base_operation_s* base = get_operation(input);
+        if (base)
+        {
+            operation = base->calculate;
+            verifier = base->verifier;
+        }
         input += 2;
     }
 
     while ((c = *input++) != '\0')
     {
-        bool isValid = isHex
-                       ? is_valid_hex_number(c)
-                       : is_valid_number(c);
-
-        if (!isValid)
+        if (!verifier(c))
         {
             return result;
         }
 
         char number = get_number(c);
 
-        result = isHex
-                 ? calculateHex(result, number)
-                 : calculate(result, number);
-
+        result = operation(result, number);
     }
+
     return isNegative
            ? -result
            : result;
