@@ -1,6 +1,6 @@
 #include "include/parse_int.h"
 
-typedef int (* base_operation_t)(int, int);
+typedef int64_t (* base_operation_t)(int64_t , int);
 
 typedef bool(* base_char_verifier_t)(char);
 
@@ -37,17 +37,17 @@ bool is_valid_binary_digit(char c)
     return c == '1' || c == '0';
 }
 
-int calculate(int r, int number)
+int64_t calculate(int64_t r, int number)
 {
     return r * 10 + number;
 }
 
-int calculateHex(int r, int number)
+int64_t calculateHex(int64_t r, int number)
 {
     return (r << 4) | (number & 0xF);
 }
 
-int calculateBinary(int r, int number)
+int64_t calculateBinary(int64_t r, int number)
 {
     return (r << 1) | number;
 }
@@ -126,7 +126,7 @@ base_operation_s* get_operation(const char* input)
     return NULL;
 }
 
-int parse_int(const char* input)
+int64_t parse_int(const char* input)
 {
     if (is_null_or_empty(input))
     {
@@ -136,7 +136,7 @@ int parse_int(const char* input)
     input = skip_spaces(input);
 
     char c;
-    int result = 0;
+    int64_t result = 0;
 
     bool isNegative = *input == '-';
 

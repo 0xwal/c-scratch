@@ -10,6 +10,9 @@ int main()
     sample = "0xf00d";
     printf("%x\n", parse_int(sample));
 
+    sample = "0xFFFFFFFFFFFFFFFF";
+    printf("%llx\n", parse_int(sample));
+
     return 0;
 }
 

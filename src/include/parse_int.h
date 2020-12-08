@@ -7,7 +7,7 @@
 
 BEGIN_DECL
 
-int parse_int(const char* input);
+int64_t parse_int(const char* input);
 
 END_DECL
 

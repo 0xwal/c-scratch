@@ -121,5 +121,12 @@ TEST_CASE("parse_int")
         REQUIRE(parse_int("0b1013") == 0b101);
         REQUIRE(parse_int("0b51013") == 0b0);
     }
+
+    SECTION("support x64 numbers")
+    {
+        REQUIRE(parse_int("0b1111111111111111111111111111111111111111111111111111111111111111") == 0xFFFFFFFFFFFFFFFF);
+        REQUIRE(parse_int("0xFFFFFFFFFFFFFFFF") == 0xFFFFFFFFFFFFFFFF);
+        REQUIRE(parse_int("9223372036854775807") == 9223372036854775807);
+    }
 }
 
