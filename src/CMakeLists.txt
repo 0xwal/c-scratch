@@ -14,6 +14,8 @@ add_library(${PROJECT_NAME}
 
             include/words_count.h
             words_count.c
+            include/parse_int.h
+            parse_int.c
             )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)

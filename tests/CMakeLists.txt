@@ -16,6 +16,7 @@ target_sources(${PROJECT_NAME} PRIVATE
                to_lower.test.cpp
                to_upper.test.cpp
                words_count.test.cpp
+               parse_int.test.cpp
                )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Catch2::Catch2)
