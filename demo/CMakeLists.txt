@@ -5,7 +5,8 @@ list(APPEND _ALL_DEMO
      string_length
      to_lower
      to_upper
-     words_count)
+     words_count
+     parse_int)
 
 foreach (d ${_ALL_DEMO})
 
