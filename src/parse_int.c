@@ -26,7 +26,7 @@ char get_number(char c)
     return (char)(((c | 0x20) - 'a') + 10);
 }
 
-bool is_valid_hex_number(char c)
+bool is_valid_hex_digit(char c)
 {
     c = (char)(c | 0x20);
     return is_valid_number(c) || (c >= 'a' && c <= 'f');
@@ -104,7 +104,7 @@ static base_operation_s g_operations[] = {
         {
                 "0x",
                 calculateHex,
-                is_valid_hex_number
+                is_valid_hex_digit
         },
         {
                 "0b",
