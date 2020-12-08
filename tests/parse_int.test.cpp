@@ -79,5 +79,30 @@ TEST_CASE("parse_int")
         REQUIRE(parse_int("T123") == 0);
         REQUIRE(parse_int(":123") == 0);
     }
+
+    SECTION("able to parse hex when input prefixed with 0x")
+    {
+        REQUIRE(parse_int("0x9") == 0x9);
+        REQUIRE(parse_int("0x88") == 0x88);
+        REQUIRE(parse_int("0x999") == 0x999);
+        REQUIRE(parse_int("0x4422") == 0x4422);
+        REQUIRE(parse_int("0x4422F") == 0x4422F);
+        REQUIRE(parse_int("0x1E60") == 0x1E60);
+        REQUIRE(parse_int("0x1acf") == 0x1ACF);
+        REQUIRE(parse_int("0xbeef") == 0xBEEF);
+    }
+
+    SECTION("return valid numbers before any non-number when the hex number not prefixed with 0x")
+    {
+        REQUIRE(parse_int("1FF") == 1);
+        REQUIRE(parse_int("12E1") == 12);
+        REQUIRE(parse_int("3F") == 3);
+        REQUIRE(parse_int("123EFC") == 123);
+    }
+
+    SECTION("return 0 when input is 0x")
+    {
+        REQUIRE(parse_int("0x") == 0);
+    }
 }
 
