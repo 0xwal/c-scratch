@@ -1,17 +1,17 @@
 #include "include/parse_int.h"
 
+bool is_valid_number(char c)
+{
+    return (c >= '0' && c <= '9');
+}
+
 char get_number(char c)
 {
-    if (c >= '0' && c <= '9')
+    if (is_valid_number(c))
     {
         return (char)(c - '0');
     }
     return (char)(((c | 0x20) - 'a') + 10);
-}
-
-bool is_valid_number(char c)
-{
-    return (c >= '0' && c <= '9');
 }
 
 bool is_valid_hex_number(char c)
@@ -20,14 +20,14 @@ bool is_valid_hex_number(char c)
     return is_valid_number(c) || (c >= 'a' && c <= 'f');
 }
 
-int calculate(int result, int number)
+int calculate(int r, int number)
 {
-    return result * 10 + number;
+    return r * 10 + number;
 }
 
-int calculateHex(int result, int number)
+int calculateHex(int r, int number)
 {
-    return (result << 4) | (number & 0xF);
+    return (r << 4) | (number & 0xF);
 }
 
 const char* skip_spaces(const char* input)
@@ -79,7 +79,7 @@ int parse_int(const char* input)
             return result;
         }
 
-        int number = get_number(c);
+        char number = get_number(c);
 
         result = isHex
                  ? calculateHex(result, number)
