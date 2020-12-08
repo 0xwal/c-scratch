@@ -41,19 +41,29 @@ bool is_input_prefixed_with_0x(const char* input)
     return *input == '0' && *(input + 1) == 'x';
 }
 
+bool is_null_or_empty(const char* input)
+{
+    return input == NULL || *input == '\0';
+}
+
 int parse_int(const char* input)
 {
-    if (input == NULL || *input == '\0')
+    if (is_null_or_empty(input))
     {
         return 0;
     }
-
 
     input = skip_spaces(input);
 
     char c;
     int result = 0;
-    bool isNegative = false;
+
+    bool isNegative = *input == '-';
+
+    if (isNegative)
+    {
+        input++;
+    }
 
     bool isHex = is_input_prefixed_with_0x(input);
 
@@ -62,17 +72,11 @@ int parse_int(const char* input)
         input += 2;
     }
 
-    while ((c = *input) != '\0')
+    while ((c = *input++) != '\0')
     {
-        input++;
-
-        if (c == '-')
-        {
-            isNegative = true;
-            continue;
-        }
-
-        bool isValid = isHex ? is_valid_hex_number(c) : is_valid_number(c);
+        bool isValid = isHex
+                       ? is_valid_hex_number(c)
+                       : is_valid_number(c);
 
         if (!isValid)
         {
@@ -86,5 +90,7 @@ int parse_int(const char* input)
                  : calculate(result, number);
 
     }
-    return isNegative ? -result : result;
+    return isNegative
+           ? -result
+           : result;
 }
