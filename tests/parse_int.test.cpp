@@ -104,5 +104,21 @@ TEST_CASE("parse_int")
     {
         REQUIRE(parse_int("0x") == 0);
     }
+
+    SECTION("able to parse binary number")
+    {
+        REQUIRE(parse_int("0b1") == 0b1);
+        REQUIRE(parse_int("0b101") == 0b101);
+        REQUIRE(parse_int("0b0101011") == 0b0101011);
+        REQUIRE(parse_int("0b01010000") == 0b01010000);
+        REQUIRE(parse_int("0b111111111") == 0b111111111);
+    }
+
+    SECTION("return calculated valid numbers only and stop calculating on invalid digits")
+    {
+        REQUIRE(parse_int("0b12") == 1);
+        REQUIRE(parse_int("0b1013") == 0b101);
+        REQUIRE(parse_int("0b51013") == 0b0);
+    }
 }
 

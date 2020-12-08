@@ -32,6 +32,11 @@ bool is_valid_hex_number(char c)
     return is_valid_number(c) || (c >= 'a' && c <= 'f');
 }
 
+bool is_valid_binary_digit(char c)
+{
+    return c == '1' || c == '0';
+}
+
 int calculate(int r, int number)
 {
     return r * 10 + number;
@@ -42,6 +47,11 @@ int calculateHex(int r, int number)
     return (r << 4) | (number & 0xF);
 }
 
+int calculateBinary(int r, int number)
+{
+    return (r << 1) | number;
+}
+
 const char* skip_spaces(const char* input)
 {
     while (*input == ' ') { input++; }
@@ -50,7 +60,12 @@ const char* skip_spaces(const char* input)
 
 bool has_base(const char* input)
 {
-    return *input == '0' && *(input + 1) == 'x';
+    if (*input != '0')
+    {
+        return false;
+    }
+    char second = *(input + 1);
+    return second == 'x' || second == 'b';
 }
 
 bool is_null_or_empty(const char* input)
@@ -77,6 +92,11 @@ static base_operation_s g_operations[] = {
                 "0x",
                 calculateHex,
                 is_valid_hex_number
+        },
+        {
+                "0b",
+                calculateBinary,
+                is_valid_binary_digit
         }
 };
 
