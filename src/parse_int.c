@@ -58,16 +58,6 @@ const char* skip_spaces(const char* input)
     return input;
 }
 
-bool has_base(const char* input)
-{
-    if (*input != '0')
-    {
-        return false;
-    }
-    char second = *(input + 1);
-    return second == 'x' || second == 'b';
-}
-
 bool is_null_or_empty(const char* input)
 {
     return input == NULL || *input == '\0';
@@ -85,6 +75,29 @@ static bool is_equals(const char* first, const char* second)
         second++;
     }
     return true;
+}
+
+bool has_base(const char* input)
+{
+    static char g_supported_base[] = {
+            'b',
+            'x'
+    };
+
+    if (*input != '0')
+    {
+        return false;
+    }
+    char second = *(input + 1);
+    for (int i = 0; i < sizeof(g_supported_base); ++i)
+    {
+        if (second == g_supported_base[i]) {
+            return true;
+        }
+    }
+
+    return false;
+
 }
 
 static base_operation_s g_operations[] = {

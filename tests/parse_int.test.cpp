@@ -116,6 +116,7 @@ TEST_CASE("parse_int")
 
     SECTION("return calculated valid numbers only and stop calculating on invalid digits")
     {
+        REQUIRE(parse_int("0b") == 0);
         REQUIRE(parse_int("0b12") == 1);
         REQUIRE(parse_int("0b1013") == 0b101);
         REQUIRE(parse_int("0b51013") == 0b0);
