@@ -4,11 +4,11 @@
 int main()
 {
     const char* sample = "1238321";
-    printf("%d\n", parse_int(sample));
+    printf("%lld\n", parse_int(sample));
 
 
     sample = "0xf00d";
-    printf("%x\n", parse_int(sample));
+    printf("%llx\n", parse_int(sample));
 
     sample = "0xFFFFFFFFFFFFFFFF";
     printf("%llx\n", parse_int(sample));
