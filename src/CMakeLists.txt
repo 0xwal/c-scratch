@@ -14,10 +14,15 @@ add_library(${PROJECT_NAME}
 
             include/words_count.h
             words_count.c
+
             include/parse_int.h
             parse_int.c
+
             include/index_of.h
             index_of.c
+
+            include/power.h
+            power.c
             )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
