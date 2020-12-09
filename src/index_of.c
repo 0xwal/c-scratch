@@ -12,16 +12,24 @@ int index_of(const char* haystack, const char* needle)
     {
         for (int j = 0; j < needle[j] != '\0'; ++j)
         {
-            if (haystack[i + j] != needle[j])
+            char currentCharOfHaystack = haystack[i + j];
+            char currentCharOfNeedle = needle[j];
+
+            if (currentCharOfHaystack == '\0')
+            {
+                return -1;
+            }
+
+            if (currentCharOfHaystack != currentCharOfNeedle)
             {
                 break;
             }
 
-            if (needle[j + 1] == '\0') {
+            if (needle[j + 1] == '\0')
+            {
                 return i;
             }
         }
     }
-
     return -1;
 }
