@@ -1,4 +1,4 @@
-![Main](https://github.com/0xWaleed/c-scratch/workflows/Main/badge.svg)
+![c-scratch](https://github.com/0xWaleed/c-scratch/workflows/c-scratch/badge.svg)
 
 # C Scratch 📝
 
