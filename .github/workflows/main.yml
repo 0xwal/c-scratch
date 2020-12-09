@@ -3,7 +3,7 @@ name: c-scratch
 on:
   push:
     paths-ignore:
-      - '**/README.md'
+      - '**.md'
 
 env:
   BUILD_TYPE: Release
