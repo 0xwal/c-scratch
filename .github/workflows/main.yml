@@ -1,6 +1,9 @@
-name: Main
+name: c-scratch
 
-on: [ push ]
+on:
+  push:
+    paths-ignore:
+      - '**/README.md'
 
 env:
   BUILD_TYPE: Release
@@ -8,6 +11,7 @@ env:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+    continue-on-error: true
     strategy:
       matrix:
         os: [ ubuntu-latest, windows-latest, macOS-latest ]
@@ -39,8 +43,8 @@ jobs:
         working-directory: ${{runner.workspace}}/build
         shell: bash
         run: |
-                  if [ "$RUNNER_OS" == "Windows" ]; then
-                        tests\\Release\\scratch_tests.exe
-                  else
-                        tests/scratch_tests
-                   fi
+          if [ "$RUNNER_OS" == "Windows" ]; then
+                tests\\Release\\scratch_tests.exe
+          else
+                tests/scratch_tests
+           fi
