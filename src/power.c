@@ -1,4 +1,6 @@
-double power(double base, int exponent)
+#include "include/power.h"
+
+double power(double base, int64_t exponent)
 {
     if (exponent == 0)
     {

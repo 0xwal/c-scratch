@@ -7,7 +7,7 @@
 
 BEGIN_DECL
 
-double power(double base, int exponent);
+double power(double base, int64_t exponent);
 
 END_DECL
 
