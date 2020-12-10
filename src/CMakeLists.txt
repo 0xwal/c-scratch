@@ -23,3 +23,10 @@ add_library(${PROJECT_NAME}
             )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
+
+set_target_properties(${PROJECT_NAME}
+                      PROPERTIES
+                      LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output
+                      ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output
+                      RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output
+                      )
