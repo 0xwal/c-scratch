@@ -18,7 +18,6 @@ target_sources(${PROJECT_NAME} PRIVATE
                words_count.test.cpp
                parse_int.test.cpp
                index_of.test.cpp
-               power.test.cpp
                )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Catch2::Catch2)

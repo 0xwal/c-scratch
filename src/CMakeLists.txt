@@ -20,9 +20,6 @@ add_library(${PROJECT_NAME}
 
             include/index_of.h
             index_of.c
-
-            include/power.h
-            power.c
             )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
