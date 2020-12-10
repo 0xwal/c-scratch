@@ -20,5 +20,13 @@ TEST_CASE("power")
         REQUIRE(power(6.5, 8) == 3186448.12890625);
 
         REQUIRE(power(5, 0) == 1);
+        REQUIRE(power(1, 2147483647) == 1);
+    }
+
+    SECTION("calculate when exponent is negative")
+    {
+        REQUIRE(power(2, -2) == 0.25);
+        REQUIRE(power(2, -2147483648) == 0);
+//        REQUIRE(power(8.95371, -1) == 0.11169); TODO:: supports
     }
 }

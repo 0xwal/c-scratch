@@ -1,16 +1,27 @@
-double power(double base, double exponent)
+double power(double base, int exponent)
 {
-    if (!base)
+    if (exponent == 0)
     {
-        return 0;
+        return 1;
     }
 
-    double r = 1;
-
-    for (int i = 0; i < exponent; ++i)
+    if (exponent == 1)
     {
-        r *= base;
+        return base;
     }
-    return r;
+
+    if (exponent < 0)
+    {
+        exponent *= -1;
+        base = 1 / base;
+    }
+
+    if (exponent >= 2)
+    {
+        double half = power(base, exponent / 2);
+        return exponent % 2 != 0 ? ((half * half) * base) : (half * half);
+    }
+
+    return 0;
 }
 
