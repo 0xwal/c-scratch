@@ -17,3 +17,9 @@ char* xor_encrypt(char* input, char key)
 
     return input;
 }
+
+
+char* xor_decrypt(char* input, char key)
+{
+    return xor_encrypt(input, key);
+}
