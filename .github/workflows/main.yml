@@ -42,9 +42,4 @@ jobs:
       - name: Test
         working-directory: ${{runner.workspace}}/build
         shell: bash
-        run: |
-          if [ "$RUNNER_OS" == "Windows" ]; then
-                tests\\Release\\scratch_tests.exe
-          else
-                tests/scratch_tests
-           fi
+        run: ctest -C $BUILD_TYPE

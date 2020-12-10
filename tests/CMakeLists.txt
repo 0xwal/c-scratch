@@ -23,3 +23,8 @@ target_sources(${PROJECT_NAME} PRIVATE
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Catch2::Catch2)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${CMAKE_PROJECT_NAME})
+
+
+add_test(Test ${PROJECT_NAME})
+include(${Catch2_SOURCE_DIR}/contrib/Catch.cmake)
+catch_discover_tests(${PROJECT_NAME})
