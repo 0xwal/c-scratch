@@ -1,8 +1,6 @@
 # Contributing
 
-When contributing to this repository, make sure to open an issue if not exist so we can discuss and 
-
-the problem.
+When contributing to this repository, make sure to open an issue if not exist so we can discuss mthe problem.
 
 ## Requirements:
 
