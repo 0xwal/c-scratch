@@ -19,6 +19,7 @@ target_sources(${PROJECT_NAME} PRIVATE
                parse_int.test.cpp
                index_of.test.cpp
                xor.test.cpp
+               factorial.test.cpp
                )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Catch2::Catch2)

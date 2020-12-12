@@ -23,6 +23,9 @@ add_library(${PROJECT_NAME}
 
             include/xor.h
             xor.c
+
+            include/factorial.h
+            factorial.c
             )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
