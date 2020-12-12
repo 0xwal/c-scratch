@@ -45,4 +45,10 @@ the problem.
 
 - Compilation unit *.c is self-contained and should not rely on any other functions so people can refer to one file to learn the specific problem solution.
 
-- If you have any questions or improvements, feel free to contact me on Discord: 0xWaleed#5833
+- Problem should be solved using `C`, tests can be written in `C++` because we are using [Catch2](https://github.com/catchorg/Catch2) as testing framework.
+
+  
+
+  If you have any questions or improvements, feel free to contact me on Discord: 0xWaleed#5833
+
+  
