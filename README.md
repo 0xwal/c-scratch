@@ -19,6 +19,8 @@ tasks from scratch to gain the knowledge. I chose the C language because there i
 - Write tests and cover all possible scenarios.
 - Use pure C to write the task.
 
+for details see [Contributing Guide](https://github.com/0xWaleed/c-scratch/blob/master/CONTRIBUTING.md)
+
 ## Note: ℹ️
 
 * Open an issue for your suggestion, note, comment, etc.
