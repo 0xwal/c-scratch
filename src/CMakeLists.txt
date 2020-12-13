@@ -26,6 +26,9 @@ add_library(${PROJECT_NAME}
 
             include/factorial.h
             factorial.c
+
+            include/rc4.h
+            rc4.c
             )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)

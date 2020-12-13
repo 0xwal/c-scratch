@@ -20,6 +20,7 @@ target_sources(${PROJECT_NAME} PRIVATE
                index_of.test.cpp
                xor.test.cpp
                factorial.test.cpp
+               rc4.test.cpp
                )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Catch2::Catch2)
