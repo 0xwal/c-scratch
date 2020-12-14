@@ -5,9 +5,9 @@
 
 BEGIN_DECL
 
-char* xor_encrypt(char* input, char key);
+char* xor_encrypt(char* input, const char* key);
 
-char* xor_decrypt(char* input, char key);
+char* xor_decrypt(char* input, const char* key);
 
 END_DECL
 

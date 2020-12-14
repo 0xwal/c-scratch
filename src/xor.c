@@ -1,25 +1,35 @@
 #include "include/xor.h"
 
-char* xor_encrypt(char* input, char key)
+size_t length(const char* input)
+{
+    size_t length = 0;
+    while (input[length] != '\0') length++;
+    return length;
+}
+
+char* xor_encrypt(char* input, const char* key)
 {
     if (!input)
     {
         return NULL;
     }
 
-    char* ptr = input;
+    size_t keyLength = length(key);
+    size_t inputLength = length(input);
 
-    while (*ptr != '\0')
+    for (size_t i = 0; i < inputLength; ++i)
     {
-        *ptr = (char)(*ptr ^ key);
-        ptr++;
+        char ored = (char)(input[i] ^key[i % keyLength]);
+        if (!ored)
+            ored = input[i];
+        input[i] = ored;
     }
 
     return input;
 }
 
 
-char* xor_decrypt(char* input, char key)
+char* xor_decrypt(char* input, const char* key)
 {
     return xor_encrypt(input, key);
 }
