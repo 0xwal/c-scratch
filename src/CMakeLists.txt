@@ -29,6 +29,9 @@ add_library(${PROJECT_NAME}
 
             include/rc4.h
             rc4.c
+
+            include/joaat.h
+            joaat.c
             )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
