@@ -32,6 +32,9 @@ add_library(${PROJECT_NAME}
 
             include/joaat.h
             joaat.c
+
+            include/pow.h
+            pow.c
             )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
