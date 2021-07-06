@@ -6,7 +6,7 @@
 
 BEGIN_DECL
 
-double pow(double base, double power);
+double s_pow(double base, double power);
 
 END_DECL
 

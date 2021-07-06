@@ -1,6 +1,6 @@
 #include "include/pow.h"
 
-double pow(double base, double power)
+double s_pow(double base, double power)
 {
     double r = 1;
 
