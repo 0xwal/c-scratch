@@ -35,6 +35,9 @@ add_library(${PROJECT_NAME}
 
             include/pow.h
             pow.c
+
+            include/start-with.h
+            start-with.c
             )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
