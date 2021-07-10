@@ -23,7 +23,7 @@ target_sources(${PROJECT_NAME} PRIVATE
                rc4.test.cpp
                joaat.test.cpp
                pow.test.cpp
-               start-with.test.cpp
+               start_with.test.cpp
                )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Catch2::Catch2)

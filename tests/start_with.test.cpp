@@ -3,10 +3,10 @@
 //
 
 #include <catch2/catch.hpp>
-#include <start-with.h>
+#include <start_with.h>
 
 
-TEST_CASE("start-with")
+TEST_CASE("start_with")
 {
     REQUIRE(start_with("abc", "a") == true);
     REQUIRE(start_with("abc", "ab") == true);
