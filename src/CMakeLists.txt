@@ -38,6 +38,9 @@ add_library(${PROJECT_NAME}
 
             include/start_with.h
             start_with.c
+
+            include/end_with.h
+            end_with.c
             )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)

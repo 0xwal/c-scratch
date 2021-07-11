@@ -24,6 +24,7 @@ target_sources(${PROJECT_NAME} PRIVATE
                joaat.test.cpp
                pow.test.cpp
                start_with.test.cpp
+               end_with.test.cpp
                )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Catch2::Catch2)
