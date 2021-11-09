@@ -41,6 +41,9 @@ add_library(${PROJECT_NAME}
 
             include/end_with.h
             end_with.c
+
+            include/explode.h
+            explode.c
             )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)

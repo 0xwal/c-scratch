@@ -7,7 +7,8 @@ list(APPEND _ALL_DEMO
      to_upper
      words_count
      parse_int
-     index_of)
+     index_of
+     explode)
 
 foreach (d ${_ALL_DEMO})
 
