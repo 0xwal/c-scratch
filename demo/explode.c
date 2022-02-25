@@ -8,7 +8,7 @@
 int main() {
     explode_s exp = explode_make("1,2,3,4,5,6,7,8,9", ',');
 
-    printf("Found %u elements\n", exp.count);
+    printf("Found %zu elements\n", exp.count);
 
     for (int i = 0; i < exp.count; ++i)
     {
