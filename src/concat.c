@@ -3,7 +3,6 @@
 //
 
 #include <stdlib.h>
-#include <printf.h>
 #include "include/concat.h"
 
 #define CONCAT_OUT_CHUNK_SIZE 64
