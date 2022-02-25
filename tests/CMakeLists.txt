@@ -26,6 +26,7 @@ target_sources(${PROJECT_NAME} PRIVATE
                start_with.test.cpp
                end_with.test.cpp
                explode.test.cpp
+               concat.test.cpp
                )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Catch2::Catch2)

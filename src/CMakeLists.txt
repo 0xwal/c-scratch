@@ -44,7 +44,9 @@ add_library(${PROJECT_NAME}
 
             include/explode.h
             explode.c
-            )
+
+            include/concat.h
+            concat.c)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
 
