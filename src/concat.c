@@ -38,7 +38,7 @@ size_t append(char** dest, const char* src, size_t* start)
     return totalSize;
 }
 
-char* concat(char** input, const char* separator)
+char* concat(const char** input, const char* separator)
 {
     if (input == NULL)
     {

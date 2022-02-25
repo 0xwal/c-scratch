@@ -11,9 +11,9 @@ TEST_CASE("concat")
     {
         const char* input1[] = { "a", "b", nullptr };
         const char* input2[] = { "a", "b", "c", nullptr };
-        REQUIRE_THAT(out = concat(const_cast<char**>(input1), nullptr), Catch::Equals("ab"));
+        REQUIRE_THAT(out = concat(input1, nullptr), Catch::Equals("ab"));
         del(out);
-        REQUIRE_THAT(out = concat(const_cast<char**>(input2), nullptr), Catch::Equals("abc"));
+        REQUIRE_THAT(out = concat(input2, nullptr), Catch::Equals("abc"));
         del(out);
     }
 
@@ -22,13 +22,13 @@ TEST_CASE("concat")
         const char* input1[] = { "a", "b", nullptr };
         const char* input2[] = { "a", "b", "c", nullptr };
 
-        REQUIRE_THAT(out = concat(const_cast<char**>(input1), ","), Catch::Equals("a,b"));
+        REQUIRE_THAT(out = concat(input1, ","), Catch::Equals("a,b"));
         del(out);
-        REQUIRE_THAT(out = concat(const_cast<char**>(input2), ":"), Catch::Equals("a:b:c"));
+        REQUIRE_THAT(out = concat(input2, ":"), Catch::Equals("a:b:c"));
         del(out);
-        REQUIRE_THAT(out = concat(const_cast<char**>(input2), " "), Catch::Equals("a b c"));
+        REQUIRE_THAT(out = concat(input2, " "), Catch::Equals("a b c"));
         del(out);
-        REQUIRE_THAT(out = concat(const_cast<char**>(input2), "<>"), Catch::Equals("a<>b<>c"));
+        REQUIRE_THAT(out = concat(input2, "<>"), Catch::Equals("a<>b<>c"));
         del(out);
     }
 
@@ -44,7 +44,7 @@ TEST_CASE("concat")
                 "aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id",
                 nullptr
         };
-        REQUIRE_THAT(out = concat(const_cast<char**>(input), ","), Catch::Equals(
+        REQUIRE_THAT(out = concat(input, ","), Catch::Equals(
                 "aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id,aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id"));
         del(out);
     }

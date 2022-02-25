@@ -9,7 +9,7 @@
 
 BEGIN_DECL
 
-char* concat(char** input, const char* separator);
+char* concat(const char** input, const char* separator);
 
 END_DECL
 
