@@ -7,18 +7,16 @@
 
 #include "common.h"
 
-typedef struct
-{
-    char** values;
-    size_t count;
+typedef struct {
+  char **values;
+  size_t count;
 } explode_s;
-
 
 BEGIN_DECL
 
-explode_s explode_make(const char* text, char character);
-void explode_clean(explode_s* exp);
+explode_s explode_make(const char *text, char character);
+void explode_clean(explode_s *exp);
 
 END_DECL
 
-#endif //EXPLODE_H
+#endif // EXPLODE_H
