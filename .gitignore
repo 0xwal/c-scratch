@@ -18,6 +18,10 @@ cmake-*
 # External projects
 *-prefix/
 
+.cache
+compile_commands.*
+
 # End of https://www.toptal.com/developers/gitignore/api/cmake
 
 .idea/
+build
