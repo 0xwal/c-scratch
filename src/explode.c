@@ -13,10 +13,17 @@ void copy(char *dist, const char *source, size_t length) {
 }
 
 char **_extend_values(char **values_pointer, size_t size) {
-  // if (values_pointer == NULL) {
-  //   return malloc(values_pointer);
-  // }
   return realloc(values_pointer, sizeof(char *) * size);
+}
+
+void _append_to_list(explode_s *e, char *occurence, size_t position,
+                     size_t length) {
+  e->values = _extend_values(e->values, e->count + 1);
+  char *spaceForOccurance = malloc(NSIZE(length));
+  e->values[position] = spaceForOccurance;
+
+  copy(e->values[position], occurence, length);
+  e->values[position][length] = 0;
 }
 
 explode_s explode_make(const char *text, char character) {
@@ -31,11 +38,7 @@ explode_s explode_make(const char *text, char character) {
   while (*textPointer != '\0') {
     if (*textPointer == character) {
       size_t chunkLength = textPointer - chunkStart;
-      char *spaceForOccurance = malloc(NSIZE(chunkLength));
-      e.values = _extend_values(e.values, e.count + 1);
-      e.values[i] = spaceForOccurance;
-      copy(e.values[i], chunkStart, chunkLength);
-      e.values[i][chunkLength] = 0;
+      _append_to_list(&e, (char *)chunkStart, i, chunkLength);
       chunkStart = textPointer + 1;
       e.count++;
       i++;
@@ -43,12 +46,10 @@ explode_s explode_make(const char *text, char character) {
     textPointer++;
   }
 
+  // last occurrence
   if (i > 0) {
     size_t chunkLength = textPointer - chunkStart;
-    e.values = _extend_values(e.values, e.count + 1);
-    e.values[i] = malloc(NSIZE(chunkLength));
-    copy(e.values[i], chunkStart, chunkLength);
-    e.values[i][chunkLength] = 0;
+    _append_to_list(&e, (char *)chunkStart, i, chunkLength);
     e.count++;
   }
 
