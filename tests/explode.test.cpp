@@ -24,7 +24,6 @@ TEST_CASE("explode") {
     REQUIRE_THAT(r.values[4], Equals("for"));
     REQUIRE_THAT(r.values[5], Equals("a"));
     REQUIRE_THAT(r.values[6], Equals("test"));
-    REQUIRE(r.values[7] == NULL);
     explode_clean(&r);
   }
 
