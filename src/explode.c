@@ -53,6 +53,9 @@ explode_s explode_make(const char *text, char character) {
     e.count++;
   }
 
+  e.values = _extend_values(e.values, e.count + 1);
+  e.values[e.count] = NULL;
+
   return e;
 }
 
