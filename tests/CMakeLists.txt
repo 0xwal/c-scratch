@@ -26,6 +26,7 @@ target_sources(${PROJECT_NAME} PRIVATE
                start_with.test.cpp
                end_with.test.cpp
                explode.test.cpp
+               implode.test.cpp
                concat.test.cpp
                )
 

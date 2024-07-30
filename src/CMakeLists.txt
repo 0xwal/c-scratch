@@ -45,6 +45,9 @@ add_library(${PROJECT_NAME}
             include/explode.h
             explode.c
 
+            include/implode.h
+            implode.c
+
             include/concat.h
             concat.c)
 
